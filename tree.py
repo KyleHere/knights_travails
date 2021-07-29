@@ -36,13 +36,22 @@ class Node:
         if some_node is not None:
             some_node.add_child(self)
 
+    def depth_search(self, value):
+        current_node = self
+        if current_node._value == value:
+            return current_node
+        for child in self._children:
+            child.depth_search(value)
+        if current_node.children == []:
+            return None
 
-# node1 = Node("root1")
-# node2 = Node("root2")
-# node3 = Node("root3")
 
-# node3.parent = node1
-# node3.parent = node2
+node1 = Node("root1")
+node2 = Node("root2")
+node3 = Node("root3")
 
-# print(node1.children)
-# print(node2.children)
+node3.parent = node1
+node3.parent = node2
+
+print(node1.children)
+print(node2.children)
